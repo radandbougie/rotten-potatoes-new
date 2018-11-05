@@ -1,26 +1,13 @@
+var express = require('express');
+var app = express();
+
+
 //step one
-const express = require('express')
-const app = express()
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(3000, () => {
-  console.log('App listening on port 3000!')
-})
-// step two
 var exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-//step three
-app.get('/', (req, res) => {
-  res.render('home', { msg: 'Handlebars are Cool!' });
-})
-
-//step four
 // OUR MOCK ARRAY OF PROJECTS
 let reviews = [
   { title: "Great Review", movieTitle: "Batman II" },
@@ -29,5 +16,51 @@ let reviews = [
 
 // INDEX
 app.get('/', (req, res) => {
-  res.render('reviews-index', { reviews: reviews });
+  Review.find()
+    .then(reviews => {
+      res.render('reviews-index', { reviews: reviews });
+    })
+    .catch(err => {
+      console.log(err);
+    })
 })
+
+// SHOW
+app.get('/posts/:id', (req, res) => {
+
+});
+
+// NEW
+app.get('/posts/new', function(req, res){
+
+});
+
+// CREATE
+app.post('/posts', function(req, res){
+
+});
+
+// EDIT
+app.get('/posts/:id/edit', function(req, res){
+
+});
+
+// UPDATE
+app.put('/posts/:id', function(req, res){
+
+});
+
+// DESTROY
+app.delete('/posts/:id', function(req, res){
+
+//adding mongoose
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/rotten-potatoes');
+
+//making a model
+const Review = mongoose.model('Review', {
+  title: String,
+  movieTitle: String
+});
+
+app.listen(3000);
