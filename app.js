@@ -71,8 +71,15 @@ app.put('/reviews/:id', (req, res) => {
 })
 
 
-// DESTROY
-app.delete('/posts/:id', function(req, res){
+// DELETE
+app.delete('/reviews/:id', function (req, res) {
+  console.log("DELETE review")
+  Review.findByIdAndRemove(req.params.id).then((review) => {
+    res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
+  })
+})
 
 //adding mongoose
 const mongoose = require('mongoose');
