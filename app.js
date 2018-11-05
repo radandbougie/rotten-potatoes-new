@@ -1,3 +1,4 @@
+const reviews = require('./controllers/reviews')(app, Review);
 const bodyParser = require('body-parser');
 const express = require('express');
 const methodOverride = require('method-override')
@@ -94,3 +95,5 @@ const Review = mongoose.model('Review', {
 });
 
 app.listen(3000);
+
+module.exports = app;
