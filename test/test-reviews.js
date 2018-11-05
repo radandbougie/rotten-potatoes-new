@@ -102,7 +102,7 @@ var review = new Review(sampleReview);
       });
     });
   });
-  // TEST DELETE
+
   // TEST DELETE
 it('should delete a SINGLE review on /reviews/<id> DELETE', (done) => {
   var review = new Review(sampleReview);
