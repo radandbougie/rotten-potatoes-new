@@ -1,23 +1,30 @@
-<!-- views/reviews-show.handlebars -->
+<!--views/reviews-show.handlebars-->
 
 <a href="/">Back to Home</a>
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
-    <h1>{{review.title}}</h1>
-    <h2>{{review.movieTitle}}</h2>
-    <p>{{review.description}}</p>
-    <p><a href="/reviews/{{review._id}}/edit">Edit</a></p>
-    <p><form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
-        <button class="btn btn-primary" type="submit">Delete</button>
-    </form></p>
-    <hr>
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{review.title}}</h1>
+        <h2>{{review.movieTitle}}</h2>
+        <p>{{review.description}}<p>
+        <p>{{review.rating}}</p>
+        <p><a href="/reviews/{{review._id}}/edit">Edit</a></p>
+        <p><form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
+            <button class="btn btn-primary" type="submit">Delete</button>
+        </form></p>
 
-   <!-- Comment form -->
-   {{> comment-form}}
+        <!-- Comment form -->
+        {{> comment-form}}
 
-   <!-- Show Comments -->
-   {{#each comments}}
-      {{> comment}}
-    {{/each}}
-  </div>
+        <hr>
+
+        <!-- Show Comments -->
+        <!-- use an each block to display one copy of the comment handlebars
+        partial for each item in the commnts arrary -->
+        {{#each comments}}
+        <!-- remember the greater than sign signifies that comment handlebars
+        is a partial -->
+            {{> comment}}
+        {{/each}}
+
+    </div>
 </div>

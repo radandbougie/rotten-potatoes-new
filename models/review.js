@@ -1,11 +1,19 @@
-// review.js
+// models/review.js
 
-const mongoose = require('mongoose')
+// Connect to Database via MONGOOSE
+const mongoose = require('mongoose');
 
+//mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+
+/*
+Create Model/Data Layer - where you put the code dedicated to interacting
+the database
+*/
 const Review = mongoose.model('Review', {
-  title: String,
-  description: String,
-  movieTitle: String
-});
+    title: String,
+    description: String,
+    movieTitle: String,
+    rating: Number,
+})
 
-module.exports = Review
+module.exports = Review;

@@ -1,13 +1,17 @@
-<!-- views/reviews-new.handlebars -->
-
+<!--The form tag has an HTML attribute called action that has a value equal to
+the path we want our form to submit its data to /reviews is the route to our
+create action that we will add to our server-->
+<!--views/reviews-new.handlebars-->
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
-    <form method="POST" action="/reviews">
-      {{> reviews-form}}
-      <!-- BUTTON -->
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Save Review</button>
-      </div>
-    </form>
-  </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <form method="POST" action="/reviews">
+            {{> reviews-form}}
+            <!-- BUTTON -->
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Save Review</button>
+            </div>
+        </form>
+        <!-- CANCEL LINK -->
+        <a href="/">Cancel</a>
+    </div>
 </div>
