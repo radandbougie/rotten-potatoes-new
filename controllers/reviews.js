@@ -3,14 +3,14 @@ const Review = require('../models/review');
 const Comment = require('../models/comment');
 
 module.exports = function(app, review) {
-    //ROOT ROUTE - INDEX
+
     app.get('/', (req, res) => {
         Review.find()
-            // Provide a function for the Promise to call when it resolves- when it finished whatever it was doing.
+
            .then(reviews => {
                res.render('reviews-index', { reviews: reviews });
         })
-        // Provide a function for the promise to call if it is rejected. A Promise is rejected if it fails.
+        
         .catch(err => {
             console.log(err);
         });
