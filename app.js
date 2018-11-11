@@ -26,6 +26,12 @@ const Review = require('./models/review');
 
 const reviewsContoller = require('./controllers/reviews');
 
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+
+const port = process.env.PORT || 3000;
+app.listen(port);
+
 //create engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
